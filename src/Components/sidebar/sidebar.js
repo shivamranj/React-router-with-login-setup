@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "antd/dist/antd.css";
 import { favicon } from "../../common/images";
 import { logo } from "../../themes/appimages";
@@ -10,14 +10,22 @@ import "antd/dist/antd.css";
 import "./sidebar.css";
 const { Sider } = Layout;
 
-const sidebar = () => {
+const Sidebar = () => {
   const path = "/dashboardHome/main";
+  const history = useHistory();
   const menuItem = (link, label, icon, key, isLeft) => (
     <Menu.Item
       key={key}
       onClick={() => {
+        const token = localStorage.getItem("token");
+
         if (label === "Logout") {
           localStorage.clear("token");
+          window.location.reload("/login");
+        }
+        if (!token) {
+          history.push("/login");
+
           window.location.reload("/login");
         }
       }}
@@ -99,4 +107,4 @@ const sidebar = () => {
   );
 };
 
-export default sidebar;
+export default Sidebar;

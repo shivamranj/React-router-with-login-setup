@@ -6,6 +6,8 @@ import "../header/header.css";
 import "../../customstyles/customstyles.css";
 
 const Usermanagement = () => {
+  const token = localStorage.getItem("token");
+
   const [filteredInfo, setfilteredInfo] = useState(null);
   const [sortedInfo, setsortedInfo] = useState(null);
   const length = window.location.href.length;
