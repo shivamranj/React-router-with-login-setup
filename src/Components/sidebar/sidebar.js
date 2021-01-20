@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "antd/dist/antd.css";
 import { favicon } from "../../common/images";
@@ -13,8 +13,15 @@ const { Sider } = Layout;
 const sidebar = () => {
   const path = "/dashboardHome/main";
   const menuItem = (link, label, icon, key, isLeft) => (
-    <Menu.Item key={key}>
-      {/* {label !== "Logout" ? localStorage.clear("token") : ""} */}
+    <Menu.Item
+      key={key}
+      onClick={() => {
+        if (label === "Logout") {
+          localStorage.clear("token");
+          window.location.reload("/login");
+        }
+      }}
+    >
       <Link to={link}>
         <div
           style={{
