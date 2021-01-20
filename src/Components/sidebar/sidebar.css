@@ -1,0 +1,45 @@
+body {
+  background-color: whitesmoke;
+}
+.sidebar {
+  height: 100vh;
+  position: relative;
+  width: 20%;
+}
+.sider {
+  width: 100%;
+  background-color: white;
+  height: 100%;
+  margin-bottom: 0px;
+  position: relative;
+}
+/* .logo-class-image {
+  margin-left: 90px;
+  margin-top: 10vh;
+  width: 100px;
+  height: 100px;
+} */
+.menu-items {
+  margin-top: 30px;
+}
+
+.logo-class {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 30%;
+  font-size: 30px;
+  align-items: center;
+}
+.logo-class-image {
+  width: 33%;
+  height: 44%;
+}
+
+.ant-menu-root.ant-menu-vertical
+  .ant-menu-root.ant-menu-vertical-left
+  .ant-menu-root.ant-menu-vertical-right
+  .ant-menu-root.ant-menu-inline {
+  display: flex;
+  flex-direction: column;
+}

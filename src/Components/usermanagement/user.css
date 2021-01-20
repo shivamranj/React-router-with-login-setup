@@ -1,0 +1,30 @@
+.side-layout-container {
+  height: 100vh;
+  background-color: black;
+  width: 80%;
+}
+
+.user-management-screen {
+  position: relative;
+  margin-left: 3%;
+  margin-top: -2%;
+  height: 70%;
+}
+
+.user-management-action {
+  color: white;
+  background-color: blue;
+  border: 1px solid blue;
+  padding: 4px;
+}
+
+.user-management-action:hover {
+  color: white;
+  opacity: 1;
+}
+
+.ant-spin-container {
+  position: relative;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}

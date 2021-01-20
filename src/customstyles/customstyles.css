@@ -1,0 +1,9 @@
+.ant-card {
+  width: 5px;
+}
+.ant-table-wrapper {
+  position: relative;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  margin-right: 4%;
+}

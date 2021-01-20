@@ -1,0 +1,84 @@
+.modal {
+  height: 650px;
+  margin-top: 10%;
+  margin-left: 20%;
+  width: 700px;
+  background-color: white;
+}
+
+.modal-heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  font-size: 30px;
+}
+.help {
+  height: 80px;
+}
+
+.contact {
+  height: 80px;
+}
+.modal-heading-help {
+  margin-left: 70px;
+}
+.modal-heading-contact {
+  margin-left: 120px;
+}
+.help:hover {
+  border-bottom: 8px solid blue;
+}
+.contact:hover {
+  border-bottom: 8px solid blue;
+}
+.modal-hide {
+  display: none;
+}
+.modal-line {
+  display: flex;
+  flex-direction: row;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.faq {
+  margin-top: 30px;
+  margin-left: 270px;
+  width: 120px;
+  background-color: whitesmoke;
+  border: 3px solid whitesmoke;
+  padding: 10px;
+  outline: none;
+  font-size: 15px;
+}
+
+.how {
+  margin-top: 20px;
+  margin-left: 257px;
+}
+
+.content p {
+  margin-top: 20px;
+  margin-left: 282px;
+  font-size: 11px;
+}
+.first {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.dummy {
+  width: 250px;
+  height: 100px;
+  background-color: whitesmoke;
+  border-radius: 8px;
+  margin-left: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
