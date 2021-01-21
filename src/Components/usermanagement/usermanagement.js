@@ -1,17 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Table, Button, Space } from "antd";
 import "./user.css";
 import Header from "../header/header";
 import "../header/header.css";
 import "../../customstyles/customstyles.css";
+import { useHistory } from "react-router-dom";
 
 const Usermanagement = () => {
   const token = localStorage.getItem("token");
-
+  const sessiontoken = sessionStorage.getItem("token");
+  const history = useHistory();
   const [filteredInfo, setfilteredInfo] = useState(null);
   const [sortedInfo, setsortedInfo] = useState(null);
   const length = window.location.href.length;
   let heading = window.location.href.slice(21, length);
+  const location = "/dashboardHome/main/Usermanagement";
+
+  useEffect(() => {
+    console.log("token", token);
+    if (token == null || token == "") {
+      localStorage.setItem("path", "/dashboardHome/main/Usermanagement");
+      history.push({
+        pathname: "/login",
+        search: "shi",
+        state: { detail: "shivam" },
+      });
+    }
+  }, []);
 
   if ((heading = "/dashboard/Usermanagement")) {
     heading = "User Management";
@@ -166,6 +181,8 @@ const Usermanagement = () => {
   ];
   return (
     <div className="side-layout-container">
+      {console.log("session", localStorage.getItem("token"))}
+
       <Header heading={heading} searchbar={true} />
 
       <div className="user-management-screen">

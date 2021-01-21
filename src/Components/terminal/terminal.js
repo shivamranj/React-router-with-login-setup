@@ -1,7 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import "./terminal.css";
 
 const Terminal = () => {
+  const history = useHistory();
+  const sessiontoken = sessionStorage.getItem("token");
+  const token = localStorage.getItem("token");
+  const location = "/dashboardHome/main/terminalManagement";
+
+  useEffect(() => {
+    console.log("token", token);
+    if (token == null || token == "") {
+      localStorage.setItem("path", "/dashboardHome/main/terminalManagement");
+      history.push({
+        pathname: "/login",
+        search: "shi",
+        state: { detail: "shivam" },
+      });
+    }
+  }, []);
   const [ismodal, setmodal] = useState("true");
   return (
     <div className="main">

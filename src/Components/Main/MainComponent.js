@@ -14,9 +14,12 @@ import Dashboard from "../Dashboard/Dashboard";
 import { routes } from "../../pages/routes";
 import Usermamagement from "../usermanagement/usermanagement";
 import Terminal from "../terminal/terminal";
+import Usermanagement from "../usermanagement/usermanagement";
 
 function Main() {
   const token = localStorage.getItem("token");
+  const sessiontoken = sessionStorage.getItem("token");
+
   const history = useHistory();
 
   return (
@@ -29,9 +32,9 @@ function Main() {
             path="/"
             component={() =>
               token ? (
-                <Redirect to="/dashboardHome/main" />
+                <Redirect to={routes.DASHBOARDHOME} />
               ) : (
-                <Redirect to="/login" />
+                <Redirect to={routes.LOGIN} />
               )
             }
           />

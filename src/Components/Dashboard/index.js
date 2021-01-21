@@ -13,8 +13,20 @@ import { routes } from "../../pages/routes";
 const DashboardHome = () => {
   const history = useHistory();
   const location = useLocation();
-  const token = localStorage.getItem("token");
+
   console.log(location.pathname);
+
+  const sessiontoken = sessionStorage.getItem("token");
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    console.log("token", token);
+    if (token == null || token == "") {
+      history.push("/login");
+      window.location.reload("/login");
+    }
+  }, []);
+
   useEffect(() => {
     if (location.pathname === "/dashboardHome") {
       history.push("/dashboardHome/main");
@@ -32,17 +44,9 @@ const DashboardHome = () => {
               path={routes.DASHBOARDHOME}
               component={dashboard}
             />
-            <Route
-              exact={true}
-              path={routes.USERMANAGEMENT}
-              component={Usermanagement}
-            />
+            <Route path={routes.USERMANAGEMENT} component={Usermanagement} />
 
-            <Route
-              exact={true}
-              path={routes.TERMINALMANAGEMENT}
-              component={Terminal}
-            />
+            <Route path={routes.TERMINALMANAGEMENT} component={Terminal} />
           </Switch>
         </div>
       </BrowserRouter>

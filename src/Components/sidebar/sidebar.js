@@ -23,9 +23,8 @@ const Sidebar = () => {
           localStorage.clear("token");
           window.location.reload("/login");
         }
-        if (!token) {
+        if (token == null || token == "") {
           history.push("/login");
-
           window.location.reload("/login");
         }
       }}

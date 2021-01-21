@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Sidebar from "../sidebar/sidebar";
 import "./style.css";
 import "./dashboard.css";
@@ -15,9 +15,31 @@ import "../header/header.css";
 function Dashboard() {
   let history = useHistory();
   const length = window.location.href.length;
-
   let heading = window.location.href.slice(21, length);
   console.log(heading);
+
+  const sessiontoken = sessionStorage.getItem("token");
+  const token = localStorage.getItem("token");
+  const location = "/dashboardHome/main";
+
+  useEffect(() => {
+    console.log("token", token);
+    if (token == null || token == "") {
+      localStorage.setItem("path", "/dashboardHome/main");
+      history.push({
+        pathname: "/login",
+        search: "shi",
+        state: { detail: "shivam" },
+      });
+    }
+  }, []);
+  // useEffect(() => {
+  //   console.log("token", token);
+  //   if (sessiontoken == null || sessiontoken == "") {
+  //     history.push("/login");
+  //     window.location.reload("/login");
+  //   }
+  // }, []);
 
   if ((heading = "/dashboard")) {
     heading = "Dashboard";

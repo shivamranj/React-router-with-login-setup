@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { DashboardHome } from "../Dashboard/index";
 import { Input, Button, Checkbox } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
@@ -10,10 +10,19 @@ import { logo, image } from "../../themes/appimages";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 
-function Login() {
+function Login(props) {
   let history = useHistory();
+  const location = useLocation();
   const [email, setemail] = useState("");
   const [pass, setpass] = useState("");
+
+  useEffect(() => {
+    setTimeout(() => {
+      console.log(props);
+      console.log("location", location?.state?.detail);
+    }, 2000);
+  }, []);
+
   // useEffect(() => {
   //   setInterval(() => {
   //     document.querySelector(".admin-login-text").style.animation = "change";
@@ -69,8 +78,14 @@ function Login() {
               isSubmitting={true}
               onClick={(event) => {
                 if (pass == "shivam" && email == "shivam") {
-                  history.push("/dashboardHome/main");
                   localStorage.setItem("token", "shivam");
+
+                  if (localStorage.getItem("path")) {
+                    history.push(localStorage.getItem("path"));
+                  } else {
+                    history.push("/dashboardHome/main");
+                    localStorage.setItem("token", "shivam");
+                  }
                 } else {
                   setemail("");
                   setpass("");
