@@ -21,7 +21,7 @@ const DashboardHome = () => {
 
   useEffect(() => {
     console.log("token", token);
-    if (token == null || token == "") {
+    if (token == null || token == "" || token != "shivam") {
       history.push("/login");
       window.location.reload("/login");
     }

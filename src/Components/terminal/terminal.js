@@ -10,13 +10,9 @@ const Terminal = () => {
 
   useEffect(() => {
     console.log("token", token);
-    if (token == null || token == "") {
+    if (token == null || token == "" || token != "shivam") {
       localStorage.setItem("path", "/dashboardHome/main/terminalManagement");
-      history.push({
-        pathname: "/login",
-        search: "shi",
-        state: { detail: "shivam" },
-      });
+      window.location.reload("/login");
     }
   }, []);
   const [ismodal, setmodal] = useState("true");

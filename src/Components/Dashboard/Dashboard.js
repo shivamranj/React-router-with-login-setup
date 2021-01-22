@@ -24,13 +24,9 @@ function Dashboard() {
 
   useEffect(() => {
     console.log("token", token);
-    if (token == null || token == "") {
+    if (token == null || token == "" || token != "shivam") {
       localStorage.setItem("path", "/dashboardHome/main");
-      history.push({
-        pathname: "/login",
-        search: "shi",
-        state: { detail: "shivam" },
-      });
+      window.location.reload("/login");
     }
   }, []);
   // useEffect(() => {
